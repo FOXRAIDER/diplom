@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'new.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.2
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,8 +12,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("Архиватор")
-        MainWindow.setFixedSize(320, 480)
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(320, 480)
+        MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -26,4 +27,4 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Архиватор"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
