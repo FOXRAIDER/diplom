@@ -10,11 +10,20 @@ class mywindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(mywindow, self).__init__()
         self.ui = Ui_MainWindow()
+        self.window()
         self.background()
+        self.settings()
+        self.continue_btn()
+        self.brand_name()
         self.ui.setupUi(self)
         self.logo()
         self.comboBox()
         self.enter_file()
+
+    def window(self):
+        #QtWidgets.QMainWindow.setFixedSize(320,480)
+        main = QtWidgets.QMainWindow
+        main.setFixedSize(self,320,480)
 
     def background(self):
         label = QLabel(self)
@@ -28,19 +37,37 @@ class mywindow(QtWidgets.QMainWindow):
         lbl.setGeometry(85,70,150,150)
         pixmap = QPixmap('img/logo.png')
         lbl.setPixmap((pixmap))
-        lbl.setScaledContents(1)
-        
-        print('succes')
-    
+        lbl.setScaledContents(1)    
 
     def comboBox(self):
         combo = QComboBox(self)
-        combo.addItems(["Архивировать", "Разархивировать"])
+        combo.addItems(["COMPRESS", "DECOMPRESS"])
         combo.setFixedSize(150, 30)
         combo.move(85, 350)
         combo.activated[str].connect(self.onActivated)  
         default = "Архивировать"
         print(type(default))
+    
+    def settings(self):
+        btn = QPushButton(self)
+        btn.resize(50,480)
+        btn.move(0,0)
+        btn.setIcon(QIcon('img/settings.png'))
+        btn.setIconSize(QSize(500,500))
+
+
+    def continue_btn(self):
+        btn = QPushButton(self)
+        btn.resize(50,480)
+        btn.move(270,0)
+        btn.setIcon(QIcon('img/cont.png'))
+        btn.setIconSize(QSize(500,500))
+    
+    def brand_name(self):
+        temp = QLabel(self)
+        temp.setGeometry(100,10,120,40)
+        #temp.setStyleSheet("background-color: rgb(255, 255, 255);") 
+
 
     def enter_file(self):
         openfile = QPushButton(self)
@@ -49,11 +76,6 @@ class mywindow(QtWidgets.QMainWindow):
         openfile.resize(150, 25)
         openfile.setIcon(QIcon('img/OPEN.png'))
         openfile.setIconSize(QSize(150,150))
-        
-    
-        
-
-
         self.show()
     
     def showDialog(self):
